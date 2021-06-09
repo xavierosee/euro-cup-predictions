@@ -1,74 +1,10 @@
-# Data analysis
-- Document here the project: euro-cup-predictions
-- Description: Project Description
-- Data Source:
-- Type of analysis:
+# Euro Cup 2021 Predictions
+An attempt to win my friends' Mon Petit Prono league with Statistics and Data Science
 
-Please document the project the better you can.
-
-# Startup the project
-
-The initial setup.
-
-Create virtualenv and install the project:
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv ~/venv ; source ~/venv/bin/activate ;\
-    pip install pip -U; pip install -r requirements.txt
-```
-
-Unittest test:
-```bash
-make clean install test
-```
-
-Check for euro-cup-predictions in gitlab.com/{group}.
-If your project is not set please add it:
-
-- Create a new project on `gitlab.com/{group}/euro-cup-predictions`
-- Then populate it:
-
-```bash
-##   e.g. if group is "{group}" and project_name is "euro-cup-predictions"
-git remote add origin git@github.com:{group}/euro-cup-predictions.git
-git push -u origin master
-git push -u origin --tags
-```
-
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-euro-cup-predictions-run
-```
-
-# Install
-
-Go to `https://github.com/{group}/euro-cup-predictions` to see the project, manage issues,
-setup you ssh public key, ...
-
-Create a python3 virtualenv and activate it:
-
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv -ppython3 ~/venv ; source ~/venv/bin/activate
-```
-
-Clone the project and install it:
-
-```bash
-git clone git@github.com:{group}/euro-cup-predictions.git
-cd euro-cup-predictions
-pip install -r requirements.txt
-make clean install test                # install and test
-```
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-euro-cup-predictions-run
-```
+## Inspiration
+- [Predict Euro Cup matches with basic statistics](https://sijmenvdw.medium.com/predict-euro-cup-matches-with-simple-statistics-2fc913678117)
+- FiveThirtyEight - [How our club predictions work](https://fivethirtyeight.com/methodology/how-our-club-soccer-predictions-work/)
+## Data Sources
+- [EA FIFA 21 player stats](https://www.ea.com/fr-fr/games/fifa/fifa-21/ratings/ratings-database) (TODO: Scrape)
+- FIFA country ranking
+- [Kaggle Dataset of all Euro Cup matches]()
