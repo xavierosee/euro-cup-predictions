@@ -6,7 +6,7 @@ with open("requirements.txt") as f:
 requirements = [x.strip() for x in content if "git+" not in x]
 
 setup(
-    name="euro-cup-predictions",
+    name="euro_cup_predictions",
     version="1.0",
     description="Quick attempt at predicting Euro 2021 match results",
     packages=find_packages(),
@@ -14,6 +14,6 @@ setup(
     test_suite="tests",
     # include_package_data: to install data from MANIFEST.in
     include_package_data=True,
-    scripts=["scripts/euro-cup-predictions-run"],
+    scripts=["scripts/euro_cup_predictions-run"],
     zip_safe=False,
 )
