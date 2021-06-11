@@ -5,10 +5,10 @@ install_requirements:
 	@pip install -r requirements.txt
 
 check_code:
-	@flake8 scripts/* euro-cup-predictions/*.py
+	@flake8 scripts/* euro_cup_predictions/*.py
 
 black:
-	@black scripts/* euro-cup-predictions/*.py
+	@black scripts/* euro_cup_predictions/*.py
 
 test:
 	@coverage run -m pytest tests/*.py
@@ -22,8 +22,8 @@ clean:
 	@rm -f .coverage
 	@rm -fr */__pycache__ */*.pyc __pycache__
 	@rm -fr build dist
-	@rm -fr euro-cup-predictions-*.dist-info
-	@rm -fr euro-cup-predictions.egg-info
+	@rm -fr euro_cup_predictions-*.dist-info
+	@rm -fr euro_cup_predictions.egg-info
 
 install:
 	@pip install . -U
