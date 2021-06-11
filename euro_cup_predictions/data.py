@@ -10,6 +10,7 @@ def import_from_ea():
     Returns:
         pd.Dataframe: Raw DataFrame of player grades for players whose nationality country is engaged in the Euro 2020
     """
+
     url = "https://ratings-api.ea.com/v2/entities/fifa-21?filter=&sort=ranking:ASC&limit=1000&offset=0"
     response = requests.get(url).json()
     all_players = pd.json_normalize(response["docs"])
@@ -35,3 +36,36 @@ def import_from_uefa():
     ].copy()
 
     return uefa_euro_players
+
+
+def import_from_fifa():
+    """Grab official country rankings from FIFA.com for all countries involved in Euro 2020
+
+    Returns:
+        pd.DataFrame: DataFrame of shape (24,4) with all the countries involved in Euro 2020 and their official FIFA Rankings and scores.
+    """
+
+    url = "https://www.fifa.com/fifa-world-ranking/ranking-table/men/#UEFA"
+
+    response = requests.get(url)
+    soup = bs(response.content, "html5lib")
+
+    teams = soup.find_all("tr", attrs={"data-team-id": True})
+
+    fifa_rankings = []
+
+    for team in teams:
+        rank = team.td.span.text
+        country = team.select_one(".fi-t__nText").text
+        country_short = team.select_one(".fi-t__nTri").text
+        score = float(team.select_one(".fi-table__points").span.text)
+        fifa_rankings.append(
+            {
+                "rank": rank,
+                "country": country,
+                "country_shortcode": country_short,
+                "score": score,
+            }
+        )
+
+    return pd.DataFrame(fifa_rankings)
