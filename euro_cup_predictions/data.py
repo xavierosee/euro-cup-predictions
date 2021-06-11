@@ -48,7 +48,7 @@ def import_from_fifa():
     url = "https://www.fifa.com/fifa-world-ranking/ranking-table/men/#UEFA"
 
     response = requests.get(url)
-    soup = bs(response.content, "html5lib")
+    soup = bs(response.content, "html.parser")
 
     teams = soup.find_all("tr", attrs={"data-team-id": True})
 
